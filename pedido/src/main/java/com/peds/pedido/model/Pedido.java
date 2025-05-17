@@ -1,4 +1,4 @@
-package com.emp.employee.model;
+package com.peds.pedido.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,15 +11,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "empleado")
-@Data       
+@Table(name = "pedido")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Empleado {
+public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Aqui tiene que ir un arreglo de los productos que el cliente solicitó
+    //@Column(nullable = false)
+    //private List<Producto> productos;
+
     @Column(nullable = false)
-    private String nombre;
+    private Long clienteId; // ID del cliente que hizo el pedido
 }
