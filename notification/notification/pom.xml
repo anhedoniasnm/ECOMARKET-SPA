@@ -8,11 +8,11 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.suc</groupId>
-	<artifactId>sucursal</artifactId>
+	<groupId>com.notificationservice</groupId>
+	<artifactId>notification</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sucursal</name>
-	<description>Sucursales</description>
+	<name>notification</name>
+	<description>Servicio de notificaciones</description>
 	<url/>
 	<licenses>
 		<license/>

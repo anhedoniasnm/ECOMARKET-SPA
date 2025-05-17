@@ -1,13 +1,13 @@
-package com.suc.sucursal;
+package com.notificationservice.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SucursalApplication {
+public class NotificationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SucursalApplication.class, args);
+		SpringApplication.run(NotificationApplication.class, args);
 	}
 
 }

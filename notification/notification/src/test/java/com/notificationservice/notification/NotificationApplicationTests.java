@@ -1,10 +1,10 @@
-package com.suc.sucursal;
+package com.notificationservice.notification;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SucursalApplicationTests {
+class NotificationApplicationTests {
 
 	@Test
 	void contextLoads() {
