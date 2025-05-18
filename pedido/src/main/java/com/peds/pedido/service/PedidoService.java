@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class PedidoService {
     @Autowired
-    private PedidoRepository pedidoRepository;
+    private PedidoRepository PedidoRepository;
 
     //@Autowired
     //CONEXION DE CLEINTE A LOS PEDIDOS
