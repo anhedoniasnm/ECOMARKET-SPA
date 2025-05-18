@@ -1,4 +1,4 @@
-package main.java.com.producto.producto.model;
+package com.producto.producto.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
