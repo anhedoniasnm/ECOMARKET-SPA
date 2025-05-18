@@ -1,4 +1,4 @@
-package com.producto.producto.model;
+package com.product.productos.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,15 +11,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "producto")
+@Table(name = "productos")  
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class product {
+public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @Column(nullable = false)
-    private String nombre;    
+    private String nombre;
+    
+
 }
