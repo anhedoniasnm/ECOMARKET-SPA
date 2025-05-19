@@ -1,4 +1,4 @@
-package com.product.productos.model;
+package com.product.producto.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "productos")  
+@Table(name = "producto")  
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
