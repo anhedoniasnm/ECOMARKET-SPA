@@ -1,11 +1,7 @@
-package main.java.com.producto.producto.repository;
+package main.java.com.product.productos.repository;
 
-import com.producto.producto.model.Producto;
+import com.product.productos.model.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface productRepository extends JpaRepository<Producto, Long> {
-    // Aquí puedes agregar métodos personalizados si es necesario
-    // Por ejemplo, buscar productos por nombre
-    // List<Producto> findByNombre(String nombre);
-
+public interface productoRepository extends JpaRepository<Producto, Long> {
 }

@@ -2,7 +2,6 @@ package com.product.producto.productoDTO;
 
 import lombok.*;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
