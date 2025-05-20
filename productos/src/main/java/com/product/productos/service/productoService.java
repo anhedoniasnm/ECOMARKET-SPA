@@ -9,28 +9,28 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class productService {
+public class productoService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductoRepository productRepository;
 
 
     public List<Producto> obtenerTodosProductos() {
-        return productRepository.findAll();
+        return productoRepository.findAll();
     }
 
     public Optional<Producto> obtenerProductoPorId(Long id) {
-        return productRepository.findById(id);
+        return productoRepository.findById(id);
     }
 
     public Producto guardarProducto(Producto producto) {
-        return productRepository.save(producto);
+        return productoRepository.save(producto);
     } //metodo para crear y guardar un producto
 
     public Producto actualizarProducto(Long id, Producto producto) {
-        if(productRepository.existsById(id)) {
+        if(productoRepository.existsById(id)) {
             producto.setId(id);
-            return productRepository.save(producto);
+            return productoRepository.save(producto);
         }
         return null;
     }
