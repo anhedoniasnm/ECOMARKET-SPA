@@ -1,11 +1,6 @@
 package com.product.productos.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +14,19 @@ import lombok.NoArgsConstructor;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idProducto;
     
     @Column(nullable = false)
-    private String nombre;
+    private String nombreProducto;
     
+    private String descripcionProducto;
 
+    @Column(nullable = false)
+    private double precioProducto;
+
+    private int stockProducto;
+    private String categoriaProducto;
+
+    @Column(nullable = false)
+    private Boolean estadoProducto;
 }
