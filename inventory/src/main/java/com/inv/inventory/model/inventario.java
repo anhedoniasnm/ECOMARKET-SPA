@@ -1,0 +1,30 @@
+package com.inv.inventory.model;
+
+import com.producto.producto.model.Producto;
+import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+public class inventario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idInventario;
+    
+    @ManyToOne
+    private Producto producto;
+
+    @Column(nullable = false)
+    private int cantidadDisponible;
+
+    @Column(nullable = false)
+    private int CantidadReservada;
+}
