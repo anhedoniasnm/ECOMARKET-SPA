@@ -1,8 +1,10 @@
-package main.java.com.product.productos.service;
+package com.product.productos.service;
 
-import com.product.productos.dto.productoDTO;
+import com.product.productos.dto.*;
 import com.product.productos.model.Producto;
-import com.product.productos.repository.ProductoRepository;
+import com.product.productos.repository.productoRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,58 +15,58 @@ import java.util.stream.Collectors;
 public class productoService {
 
     @Autowired
-    private ProductoRepository productRepository;
+    private productoRepository productoRepository;
 
     private productoDTO toDTO(Producto producto) {
         productoDTO dto = new productoDTO();
-        dto.setId(producto.getId());
-        dto.setNombre(producto.getNombre());
-        dto.setPrecio(producto.getPrecio());
-        dto.setStock(producto.getStock());
+        dto.setIdProducto(producto.getIdProducto());
+        dto.setNombreProducto(producto.getNombreProducto());
+        dto.setPrecioProducto(producto.getPrecioProducto());
+        dto.setStockProducto(producto.getStockProducto());
         return dto;
     }
 
     private Producto toEntity(productoDTO dto) {
         Producto producto = new Producto();
-        producto.setId(dto.getId());
-        producto.setNombre(dto.getNombre());
-        producto.setPrecio(dto.getPrecio());
-        producto.setStock(dto.getStock());
+        producto.setIdProducto(dto.getIdProducto());
+        producto.setNombreProducto(dto.getNombreProducto());
+        producto.setPrecioProducto(dto.getPrecioProducto());
+        producto.setStockProducto(dto.getStockProducto());
         return producto;
     }
 
-    public List<productoDTO> getAllProducts() {
-        return productRepository.findAll().stream()
+    public List<productoDTO> obtenerTodosLosProductos() {
+        return productoRepository.findAll().stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
 
-    public productoDTO getProductById(Long id) {
-        Producto producto = productRepository.findById(id).orElse(null);
+    public productoDTO obtenerProductoPorId(Long id) {
+        Producto producto = productoRepository.findById(id).orElse(null);
         return producto != null ? toDTO(producto) : null;
     }
 
-    public productoDTO createProduct(productoDTO dto) {
+    public productoDTO guardarProducto(productoDTO dto) {
         Producto producto = toEntity(dto);
-        Producto savedProducto = productRepository.save(producto);
-        return toDTO(Productoguardado);
+        Producto savedProducto = productoRepository.save(producto);
+        return toDTO(savedProducto);
     }
 
-    public productoDTO updateProduct(Long id, productoDTO dto) {
-        Producto existingProducto = productRepository.findById(id).orElse(null);
+    public productoDTO actualizarProducto(Long id, productoDTO dto) {
+        Producto existingProducto = productoRepository.findById(id).orElse(null);
         if (existingProducto != null) {
-            existingProducto.setNombre(dto.getNombre());
-            existingProducto.setPrecio(dto.getPrecio());
-            existingProducto.setStock(dto.getStock());
-            Producto updatedProducto = productRepository.save(existingProducto);
+            existingProducto.setNombreProducto(dto.getNombreProducto());
+            existingProducto.setPrecioProducto(dto.getPrecioProducto());
+            existingProducto.setStockProducto(dto.getStockProducto());
+            Producto updatedProducto = productoRepository.save(existingProducto);
             return toDTO(updatedProducto);
         }
         return null;
     }
 
-    public boolean deleteProduct(Long id) {
-        if (productRepository.existsById(id)) {
-            productRepository.deleteById(id);
+    public boolean eliminarProducto(Long id) {
+        if (productoRepository.existsById(id)) {
+            productoRepository.deleteById(id);
             return true;
         }
         return false;

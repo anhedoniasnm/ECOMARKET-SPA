@@ -1,10 +1,9 @@
-package main.java.com.product.productos.controller;
+package com.product.productos.controller;
 
-import com.product.productos.model.Producto;
-import com.product.productos.service.productService;
+import com.product.productos.service.productoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframkework.http.ResponseEntity;
+import com.product.productos.dto.productoDTO;
 
 import java.util.List;
 
@@ -12,30 +11,30 @@ import java.util.List;
 @RequestMapping("/api/productos")
 public class productoController {
     @Autowired
-    private ProductoService productoService;
+    private productoService productoService;
 
     @GetMapping
-    public List<Producto> obtenerTodosProductos() {
-        return productoService.obtenerTodosProductos();
+    public List<productoDTO> obtenerTodosProductos() {
+        return productoService.obtenerTodosLosProductos();
     }
 
     @GetMapping("/{id}")
-    public Optional<Producto> obtenerProductoPorId(@PathVariable Long id) {
-        return productoService.obtenerProductoPorId(idProducto);
+    public productoDTO obtenerProductoPorId(@PathVariable Long id) {
+        return productoService.obtenerProductoPorId(id);
     }
 
     @PostMapping
-    public Producto guardarProducto(@RequestBody Producto producto) {
+    public productoDTO guardarProducto(@RequestBody productoDTO producto) {
         return productoService.guardarProducto(producto);
     }
 
     @PutMapping("/{id}")
-    public Producto actualizarProducto(@PathVariable Long id, @RequestBody Producto producto) {
-        return productoService.actualizarProducto(idProducto, producto);
+    public productoDTO actualizarProducto(@PathVariable Long id, @RequestBody productoDTO producto) {
+        return productoService.actualizarProducto(id, producto);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarProducto(@PathVariable Long id) {
-        productoService.eliminarProducto(idProducto);
+        productoService.eliminarProducto(id);
     }
 }
