@@ -1,5 +1,6 @@
 package com.vent.ventas.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +9,11 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+import com.ciente.cliente.model.Cliente;
+import com.empleado.empleado.model.Empleado;
 
 @Entity
 @Table(name = "ventas")
@@ -19,8 +25,15 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // COLUMNA DE PRODUCTO 
+    // COLUMNA DE List PRODUCTO 
+    @Column(nullable = false)
+    private List<Producto> producto;
 
     // COLUMNA DE CLIENTE
-    
+    @Column(nullable = false)
+    private Cliente cliente;
+
+    // COLUMNA DE EMPLEADO
+    @Column(nullable = false)
+    private Empleado empleado;
 }
