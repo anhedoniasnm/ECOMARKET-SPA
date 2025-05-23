@@ -13,8 +13,12 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "inventario")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class inventario {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInventario;
