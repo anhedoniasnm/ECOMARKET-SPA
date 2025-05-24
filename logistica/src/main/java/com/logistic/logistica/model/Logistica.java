@@ -21,6 +21,9 @@ public class Logistica {
     private Long id;
 
     @Column(nullable = false)
-    private String nombre;
+    private Cliente cliente;
+
+    @Column(nullable = false)
+    private Pedido pedido;
 
 }

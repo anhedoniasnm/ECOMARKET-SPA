@@ -30,6 +30,12 @@ public class Cliente {
     private String nombre;  
 
     @Column(nullable = false)
+    private String telefono;
+
+    @Column(nullable = false)
+    private String direccion;
+
+    @Column(nullable = false)
     private String correo;
 
     @Column(nullable = false)
