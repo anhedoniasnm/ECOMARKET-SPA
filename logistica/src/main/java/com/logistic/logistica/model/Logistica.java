@@ -1,5 +1,7 @@
 package com.logistic.logistica.model;
 
+import javax.management.Notification;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,5 +27,8 @@ public class Logistica {
 
     @Column(nullable = false)
     private Pedido pedido;
+
+    @Column(nullable = false)
+    private Notif notificacion;
 
 }
