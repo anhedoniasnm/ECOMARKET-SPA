@@ -17,8 +17,8 @@ public class PedidoService {
 
     private pedidoDTO toDTO(Pedido pedido) {
         pedidoDTO dto = new pedidoDTO();
-        dto.setIdPedido(pedido.obtenerPedidoPorId());
-        dto.setNombreCliente(pedido.getNombreCliente());
+        dto.setIdPedido(pedido.getId());
+        dto.setNombreCliente(pedido.());
         dto.setDireccionCliente(pedido.getDireccionCliente());
         dto.setTelefonoCliente(pedido.getTelefonoCliente());
         dto.setFechaPedido(pedido.getFechaPedido());

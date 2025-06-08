@@ -1,5 +1,7 @@
 package com.product.productos.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +31,6 @@ public class Producto {
 
     @Column(nullable = false)
     private Boolean estadoProducto;
+
+    private List<Producto> productos;
 }

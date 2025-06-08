@@ -4,6 +4,8 @@ import com.peds.pedido.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.peds.pedido.dto.pedidoDTO;
+import com.peds.pedido.model.Pedido;
+
 import java.util.List;
 
 @RestController
@@ -19,7 +21,7 @@ public class pedidoController {
     }
 
     @GetMapping("/{id}")
-    public PedidoDTO obtenerPedidoPorId(@PathVariable Long id) {
+    public Pedido obtenerPedidoPorId(@PathVariable Long id) {
         return pedidoService.obtenerPedidoPorId(id);
     }
 

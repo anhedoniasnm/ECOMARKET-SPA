@@ -27,11 +27,11 @@ public class Pedido {
     
     @ManyToMany
     @JoinTable(
-        name = "pedido_producto",
+        name = "producto",
         joinColumns = @JoinColumn(name = "pedido_id"),
         inverseJoinColumns = @JoinColumn(name = "producto_id")
     )
-    private List<Producto> productos;
+    
     //Aqui tiene que ir un arreglo de los productos que el cliente solicitó
     //@Column(nullable = false)
     //private List<Producto> productos;
