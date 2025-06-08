@@ -20,7 +20,6 @@ public class productoService {
         dto.setIdProducto(producto.getIdProducto());
         dto.setNombreProducto(producto.getNombreProducto());
         dto.setPrecioProducto(producto.getPrecioProducto());
-        dto.setStockProducto(producto.getStockProducto());
         return dto;
     }
 
@@ -29,7 +28,6 @@ public class productoService {
         producto.setIdProducto(dto.getIdProducto());
         producto.setNombreProducto(dto.getNombreProducto());
         producto.setPrecioProducto(dto.getPrecioProducto());
-        producto.setStockProducto(dto.getStockProducto());
         return producto;
     }
 
@@ -55,7 +53,6 @@ public class productoService {
         if (existingProducto != null) {
             existingProducto.setNombreProducto(dto.getNombreProducto());
             existingProducto.setPrecioProducto(dto.getPrecioProducto());
-            existingProducto.setStockProducto(dto.getStockProducto());
             Producto updatedProducto = productoRepository.save(existingProducto);
             return toDTO(updatedProducto);
         }

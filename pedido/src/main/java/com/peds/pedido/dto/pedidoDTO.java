@@ -1,5 +1,5 @@
 package com.peds.pedido.dto;
-
+import java.util.List;
 import lombok.*;
 
 @Data
@@ -14,4 +14,5 @@ public class pedidoDTO {
     private String fechaPedido;
     private Double totalPedido;
     private Boolean estadoPedido;
+    private List<Long> productos;// Lista de IDs de productos asociados al pedido
 }
