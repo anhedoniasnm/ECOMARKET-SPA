@@ -18,6 +18,8 @@ public class CategoriaUsuario {
     @Column(nullable = false)
     private String nombreCategoriaUsuario;
 
+    @OneToMany(mappedBy = "rol", cascade= CascadeType.ALL)
+
     @Column(nullable = false)
     private String descripcionCategoriaUsuario;
 }

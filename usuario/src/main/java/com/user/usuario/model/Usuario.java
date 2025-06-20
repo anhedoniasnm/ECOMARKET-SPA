@@ -24,4 +24,9 @@ public class Usuario {
     private String telefonoUsuario;
     @Column(nullable = false)
     private String direccionUsuario;
+
+    @ManyToOne
+    @JoinColumn(name = "rol_id",nullable = false)
+    @JsonIgnoreProperties("usuarios")
+    private Rol rol;
 }
