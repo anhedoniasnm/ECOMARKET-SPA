@@ -3,7 +3,6 @@ package com.peds.pedido.controller;
 import com.peds.pedido.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.peds.pedido.dto.pedidoDTO;
 import com.peds.pedido.model.Pedido;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class pedidoController {
     private PedidoService pedidoService;
 
     @GetMapping
-    public List<pedidoDTO> obtenerTodosLosPedidos() {
+    public List<Pedido> obtenerTodosLosPedidos() {
         return pedidoService.obtenerTodosLosPedidos();
     }
 
@@ -26,12 +25,12 @@ public class pedidoController {
     }
 
     @PostMapping
-    public PedidoDTO guardarPedido(@RequestBody PedidoDTO pedido) {
+    public Pedido guardarPedido(@RequestBody Pedido pedido) {
         return pedidoService.guardarPedido(pedido);
     }
 
     @PutMapping("/{id}")
-    public PedidoDTO actualizarPedido(@PathVariable Long id, @RequestBody PedidoDTO pedido) {
+    public Pedido actualizarPedido(@PathVariable Long id, @RequestBody PedidoDTO pedido) {
         return pedidoService.actualizarPedido(id, pedido);
     }
 

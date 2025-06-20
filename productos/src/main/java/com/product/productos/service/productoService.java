@@ -1,6 +1,5 @@
 package com.product.productos.service;
 
-import com.product.productos.dto.*;
 import com.product.productos.model.Producto;
 import com.product.productos.repository.productoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,46 +14,39 @@ public class productoService {
     @Autowired
     private productoRepository productoRepository;
 
-    private productoDTO toDTO(Producto producto) {
-        productoDTO dto = new productoDTO();
-        dto.setIdProducto(producto.getIdProducto());
-        dto.setNombreProducto(producto.getNombreProducto());
-        dto.setPrecioProducto(producto.getPrecioProducto());
-        return dto;
-    }
-
-    private Producto toEntity(productoDTO dto) {
-        Producto producto = new Producto();
-        producto.setIdProducto(dto.getIdProducto());
-        producto.setNombreProducto(dto.getNombreProducto());
-        producto.setPrecioProducto(dto.getPrecioProducto());
+    private Producto producto;
+    public Producto crearProducto() {
+        producto = new Producto();
+        producto.setIdProducto(producto.getIdProducto());
+        producto.setNombreProducto(producto.getNombreProducto());
+        producto.setPrecioProducto(producto.getPrecioProducto());
         return producto;
     }
 
-    public List<productoDTO> obtenerTodosLosProductos() {
+
+    public List<Producto> obtenerTodosLosProductos() {
         return productoRepository.findAll().stream()
-                .map(this::toDTO)
-                .collect(Collectors.toList());
+            .collect(Collectors.toList());
     }
 
-    public productoDTO obtenerProductoPorId(Long id) {
+    public Producto obtenerProductoPorId(Long id) {
         Producto producto = productoRepository.findById(id).orElse(null);
-        return producto != null ? toDTO(producto) : null;
+        return producto;
     }
 
-    public productoDTO guardarProducto(productoDTO dto) {
-        Producto producto = toEntity(dto);
+    public Producto guardarProducto() {
+        Producto producto = new Producto();
         Producto savedProducto = productoRepository.save(producto);
-        return toDTO(savedProducto);
+        return savedProducto;
     }
 
-    public productoDTO actualizarProducto(Long id, productoDTO dto) {
+    public Producto actualizarProducto(Long id, Producto producto) {
         Producto existingProducto = productoRepository.findById(id).orElse(null);
         if (existingProducto != null) {
-            existingProducto.setNombreProducto(dto.getNombreProducto());
-            existingProducto.setPrecioProducto(dto.getPrecioProducto());
+            existingProducto.setNombreProducto(producto.getNombreProducto());
+            existingProducto.setPrecioProducto(producto.getPrecioProducto());
             Producto updatedProducto = productoRepository.save(existingProducto);
-            return toDTO(updatedProducto);
+            return updatedProducto;
         }
         return null;
     }

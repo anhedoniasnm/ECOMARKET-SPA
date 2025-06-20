@@ -24,9 +24,6 @@ public class Producto {
     @Column(nullable = false)
     private double precioProducto;
 
-    private int stockProducto;
-    private String categoriaProducto;
-
     @Column(nullable = false)
     private Boolean estadoProducto;
 }

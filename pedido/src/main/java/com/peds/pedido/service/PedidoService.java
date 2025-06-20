@@ -15,16 +15,10 @@ public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    private pedidoDTO toDTO(Pedido pedido) {
-        pedidoDTO dto = new pedidoDTO();
-        dto.setIdPedido(pedido.getIdPedido());
-        dto.setNombreCliente(pedido.());
-        dto.setDireccionCliente(pedido.getDireccionCliente());
-        dto.setTelefonoCliente(pedido.getTelefonoCliente());
-        dto.setFechaPedido(pedido.getFechaPedido());
-        dto.setTotalPedido(pedido.getTotalPedido());
-        dto.setEstadoPedido(pedido.getEstadoPedido());
-        return dto;
+    private Pedido {
+        pedido.getpedidoId
+    }
+        return pedido;
     }
 
     //@Autowired
