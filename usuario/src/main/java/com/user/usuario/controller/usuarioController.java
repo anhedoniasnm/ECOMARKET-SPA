@@ -16,7 +16,13 @@ public class usuarioController {
     public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
     }
-
+    
+    @GetMapping("/usuarios/{id}")
+    public Usuario getUsuarioById(@PathVariable Long id) {
+        return usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+    }
+    
     @PostMapping("/usuarios")
     public Usuario createUsuario(@RequestBody Usuario usuario) {
         return usuarioRepository.save(usuario);

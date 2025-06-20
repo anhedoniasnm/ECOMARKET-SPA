@@ -19,7 +19,7 @@ public class cargarBD {
                 categoriaRepository.save(Admin);
 
                 categoriaUsuario Cliente = new categoriaUsuario();
-                Cliente.setNombreCategoriaUsuario("Cliente")
+                Cliente.setNombreCategoriaUsuario("Cliente");
                 categoriaRepository.save(Cliente);
 
                 categoriaUsuario Empleado = new categoriaUsuario();
@@ -32,7 +32,10 @@ public class cargarBD {
 
                 // AQUI SE CREAN USUARIOS CON SUS ROLES PARA POSTERIOR USO EN POSTMAN
             }
+            else {
+                System.out.println("La base de datos ya contiene datos, no se cargará nuevamente.");
+            }
 
-        }
+        };
     }
 }

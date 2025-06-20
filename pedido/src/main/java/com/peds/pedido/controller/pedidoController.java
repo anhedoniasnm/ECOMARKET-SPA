@@ -1,7 +1,10 @@
 package com.peds.pedido.controller;
 
 import com.peds.pedido.service.PedidoService;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.peds.pedido.model.Pedido;
 
@@ -15,23 +18,32 @@ public class pedidoController {
     private PedidoService pedidoService;
 
     @GetMapping
-    public List<Pedido> obtenerTodosLosPedidos() {
-        return pedidoService.obtenerTodosLosPedidos();
+    public ResponseEntity<List<Pedido>> obtenerTodosLosPedidos() {
+        List<Pedido> pedidos = pedidoService.getAllPedidos();
+
+        if(pedidos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(pedidos);
     }
 
     @GetMapping("/{id}")
-    public Pedido obtenerPedidoPorId(@PathVariable Long id) {
-        return pedidoService.obtenerPedidoPorId(id);
+    public ResponseEntity<Pedido> obtenerPedidoPorId(@PathVariable Long id) {
+        try {
+            Pedido pedido = pedidoService.getPedidoById(id);
+            return ResponseEntity.ok(pedido);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(Response.SC_NOT_FOUND).body(null);
+        }
     }
-
     @PostMapping
-    public Pedido guardarPedido(@RequestBody Pedido pedido) {
-        return pedidoService.guardarPedido(pedido);
-    }
-
-    @PutMapping("/{id}")
-    public Pedido actualizarPedido(@PathVariable Long id, @RequestBody PedidoDTO pedido) {
-        return pedidoService.actualizarPedido(id, pedido);
+    public ResponseEntity<?> crearPedido(@RequestBody Pedido pedido) {
+        try {
+            Pedido nuevoPedido = pedidoService.guardarPedido(pedido);
+            return ResponseEntity.status(Response.SC_CREATED).body(nuevoPedido);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
