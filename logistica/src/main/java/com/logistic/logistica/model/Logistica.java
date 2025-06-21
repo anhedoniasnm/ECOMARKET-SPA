@@ -22,13 +22,5 @@ public class Logistica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Cliente cliente;
-
-    @Column(nullable = false)
-    private Pedido pedido;
-
-    @Column(nullable = false)
-    private Notif notificacion;
-
+    
 }
