@@ -1,6 +1,5 @@
 package com.inv.inventory.model;
 
-import com.producto.producto.model.Producto;
 import lombok.Data;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +23,7 @@ public class inventario {
     private Long idInventario;
     
     @ManyToOne
-    private Producto producto;
+    private Long idProducto;
 
     @Column(nullable = false)
     private int cantidadDisponible;

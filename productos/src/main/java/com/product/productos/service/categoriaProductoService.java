@@ -27,7 +27,7 @@ public class categoriaProductoService {
 
     public categoriaProducto actualizarCategoria(Long id, categoriaProducto categoria) {
         if (categoriaProductoRepository.existsById(id)) {
-            categoria.setIdCategoria(id);
+            categoria.setIdCategoriaProducto(id);
             return categoriaProductoRepository.save(categoria);
         }
         return null;

@@ -22,15 +22,15 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // COLUMNA DE List PRODUCTO 
     @Column(nullable = false)
-    private List<Producto> producto;
+    private List<Long> idProductos;
 
-    // COLUMNA DE CLIENTE
     @Column(nullable = false)
-    private Cliente cliente;
+    private Long IdCliente;
 
-    // COLUMNA DE EMPLEADO
     @Column(nullable = false)
-    private Empleado empleado;
+    private Long idEmpleado;
+
+    @Column(nullable = false)
+    private double totalventa;
 }
