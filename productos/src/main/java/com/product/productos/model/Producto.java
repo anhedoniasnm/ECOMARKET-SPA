@@ -26,4 +26,8 @@ public class Producto {
 
     @Column(nullable = false)
     private Boolean estadoProducto;
+
+    @ManyToOne
+    @JoinColumn(name = "idCategoriaProducto", nullable = false)
+    private categoriaProducto categoriaProducto;
 }

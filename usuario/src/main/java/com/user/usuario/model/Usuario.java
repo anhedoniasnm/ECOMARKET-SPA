@@ -26,7 +26,7 @@ public class Usuario {
     private String direccionUsuario;
 
     @ManyToOne
-    @JoinColumn(name = "rol_id",nullable = false)
+    @JoinColumn(name = "id_categoria_usuario",nullable = false)
     @JsonIgnoreProperties("usuarios")
-    private Rol rol;
+    private categoriaUsuario categoriaUsuario;
 }

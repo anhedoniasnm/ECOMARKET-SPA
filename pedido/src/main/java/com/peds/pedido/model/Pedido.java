@@ -24,10 +24,13 @@ public class Pedido {
     private Long idPedido;
 
     @Column(nullable = false)
-    private Long usuarioId;
+    private Long productoId;
 
     @Column(nullable = false)
     private String nombreProducto;
+
+    @Column(nullable = false)
+    private Long usuarioId;
 
     @Column(nullable = false)
     private String fechaPedido;
@@ -37,6 +40,5 @@ public class Pedido {
 
     @Column(nullable = false)
     private double totalPedido;
-
 
 }

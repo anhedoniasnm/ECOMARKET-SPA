@@ -25,7 +25,7 @@ public class ProductoClient {
             .onStatus(status -> status.is4xxClientError(),
                 response -> response.bodyToMono(String.class)
                     .map(body -> new RuntimeException("Producto "+id+" no encontrado")))
-            .bodyToMono(Map.class)
+            .bodyToMono(new org.springframework.core.ParameterizedTypeReference<Map<String, Object>>() {})
             .block(); 
     }
 }

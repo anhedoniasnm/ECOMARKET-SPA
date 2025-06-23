@@ -12,9 +12,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-import com.ciente.cliente.model.Cliente;
-import com.empleado.empleado.model.Empleado;
-
 @Entity
 @Table(name = "ventas")
 @Data

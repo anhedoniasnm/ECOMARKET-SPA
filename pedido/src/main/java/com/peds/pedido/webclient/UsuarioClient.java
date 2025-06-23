@@ -20,15 +20,15 @@ public class UsuarioClient {
 
     }
 
-    public Map<String, Object> getUsuarioById(Long id) {
+public Map<String, Object> getUsuarioById(Long id) {
     return this.webcliente.get()
             .uri("/{id}", id)  // Aquí se reemplaza {id} con el valor
             .retrieve()
             .onStatus(status -> status.is4xxClientError(),
                       response -> response.bodyToMono(String.class)
                               .map(body -> new RuntimeException("Usuario invalido ")))
-            .bodyToMono(Map.class)
-            .block();  
+            .bodyToMono(new org.springframework.core.ParameterizedTypeReference<Map<String, Object>>() {})
+            .block();
 }
 
 
