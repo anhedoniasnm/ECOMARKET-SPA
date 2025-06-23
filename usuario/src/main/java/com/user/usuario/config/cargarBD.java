@@ -4,6 +4,8 @@ import com.user.usuario.model.categoriaUsuario;
 import com.user.usuario.repository.categoriaRepository; 
 import com.user.usuario.repository.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+
 @Configuration
 public class cargarBD {
 
