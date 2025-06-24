@@ -7,8 +7,8 @@ import com.aunth.aunth.model.Autenticacion;
 
 @Repository
 public interface AutenticacionRepository extends JpaRepository<Autenticacion, Long> {
-    
-    //METODO Q VERIFIQUE DATOS DE USUARIO
+    Autenticacion findByCorreo(String correo);
+    Autenticacion findByCorreoAndContrasenha(String correo, String contrasenha);
     Autenticacion findByUsername(String username);
 
 }
