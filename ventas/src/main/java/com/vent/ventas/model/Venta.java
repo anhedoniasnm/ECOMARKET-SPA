@@ -35,5 +35,5 @@ public class Venta {
     private double totalventa;
 
     @Column(nullable = false)
-    private Long comisionEmpleado;
+    private double comisionEmpleado;
 }

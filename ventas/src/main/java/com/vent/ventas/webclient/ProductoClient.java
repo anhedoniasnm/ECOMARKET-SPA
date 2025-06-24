@@ -30,5 +30,15 @@ public class ProductoClient {
                 .block();
     }
 
+    public Double obtenerPrecioProducto(Long id) {
+        return webClient.get()
+                .uri("/productos/precio/{id}", id)
+                .retrieve()
+                .onStatus(status -> status.is4xxClientError(), 
+                          response -> Mono.error(new RuntimeException("Precio not found")))
+                .bodyToMono(Double.class)
+                .block();
+    }
+
 
 }

@@ -43,7 +43,7 @@ public class VentaService {
 
         Map<String, Object> cliente = clienteClient.obtenerClientePorId(nuevaVenta.getIdCliente());
         if(cliente == null) {
-            throw new RuntimeException("Cliente no encontrado con ID: " + clienteClient.getIdCliente());
+            throw new RuntimeException("Cliente no encontrado con ID: " + nuevaVenta.getIdCliente());
         }
 
         Map<String, Object> empleado = empleadoClient.obtenerEmpleadoPorId(nuevaVenta.getIdEmpleado());
@@ -56,6 +56,41 @@ public class VentaService {
             throw new RuntimeException("Producto no encontrado con ID: " + nuevaVenta.getIdProducto());
         }
 
-        
+        Double productoPrecio = productoClient.obtenerPrecioProducto(nuevaVenta.getIdProducto());
+        if (productoPrecio == null || productoPrecio.isNaN()) {
+            throw new RuntimeException("Precio del producto no encontrado con ID: " + nuevaVenta.getIdProducto());
+        }
+
+        Double comisionEmpleado = 0.2*productoClient.obtenerPrecioProducto(nuevaVenta.getIdEmpleado());
+        if (comisionEmpleado == null || comisionEmpleado.isNaN()) {
+            throw new RuntimeException("Comisión del empleado no encontrada con ID: " + nuevaVenta.getIdEmpleado());
+        }
+
+        nuevaVenta.setTotalventa(productoPrecio);
+        nuevaVenta.setComisionEmpleado(comisionEmpleado);
+        nuevaVenta.setIdCliente((Long) cliente.get("id"));
+        nuevaVenta.setIdEmpleado((Long) empleado.get("id"));
+        nuevaVenta.setIdProducto((Long) producto.get("id"));
+
+        return ventaRepository.save(nuevaVenta);
+    }
+
+    public Venta actualizarVenta(Long id, Venta ventaActualizada) {
+        Venta ventaExistente = ventaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venta no encontrada con ID: " + id));
+
+        ventaExistente.setIdProducto(ventaActualizada.getIdProducto());
+        ventaExistente.setIdCliente(ventaActualizada.getIdCliente());
+        ventaExistente.setIdEmpleado(ventaActualizada.getIdEmpleado());
+        ventaExistente.setTotalventa(ventaActualizada.getTotalventa());
+        ventaExistente.setComisionEmpleado(ventaActualizada.getComisionEmpleado());
+
+        return ventaRepository.save(ventaExistente);
+    }
+
+    public void eliminarVenta(Long id) {
+        Venta ventaExistente = ventaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venta no encontrada con ID: " + id));
+        ventaRepository.delete(ventaExistente);
     }
 }
