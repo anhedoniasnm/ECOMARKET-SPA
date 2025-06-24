@@ -1,3 +1,4 @@
-public class SwaggerConfiguration {
 
+
+public class SwaggerConfiguration {
 }
