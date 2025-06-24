@@ -1,4 +1,5 @@
-package com.vent.ventas.model;
+package com.notificacion.notif.model;
+import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,32 +9,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
-@Table(name = "ventas")
+@Table(name = "notification")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Venta {
+public class Notification {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private Long idProducto;
+    private Long idNotification;
 
     @Column(nullable = false)
     private Long idCliente;
 
     @Column(nullable = false)
-    private Long idEmpleado;
+    private Long idPedido;
 
     @Column(nullable = false)
-    private double totalventa;
+    private Long idPago;
 
     @Column(nullable = false)
-    private Long comisionEmpleado;
+    private Long idEnvio;
+
+    @Column(nullable = false)
+    private String message; 
+
+
+
 }

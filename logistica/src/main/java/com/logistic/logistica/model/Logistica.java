@@ -1,7 +1,5 @@
 package com.logistic.logistica.model;
 
-import javax.management.Notification;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +18,21 @@ import lombok.NoArgsConstructor;
 public class Logistica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idEnvio;
 
+    @Column(nullable = false)
+    private Long idChofer;
+
+    @Column(nullable = false)
+    private Long idPedido;
+
+    @Column(nullable = false)
+    private Long idCliente;
+
+    @Column(nullable = false)
+    private String direccionEnvio;
+
+    @Column(nullable = false)
+    private String estadoEnvio;
     
 }
